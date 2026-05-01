@@ -34,7 +34,8 @@ const Contact = () => {
     try {
       if (form.paymentMethod === "payonline") {
         // Razorpay payment
-        const response = await fetch("http://localhost:5000/api/bookings/create", {
+        const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+        const response = await fetch(`${API_URL}/api/bookings/create`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -61,7 +62,8 @@ const Contact = () => {
         }
       } else {
         // Pay on Counter
-        const response = await fetch("http://localhost:5000/api/bookings/save-file", {
+        const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+        const response = await fetch(`${API_URL}/api/bookings/save-file`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
